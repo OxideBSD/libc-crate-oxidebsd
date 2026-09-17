@@ -87,7 +87,7 @@ cfg_if! {
     } else if #[cfg(target_os = "l4re")] {
         mod l4re;
         // pub(crate) use l4re::*;
-    } else if #[cfg(target_os = "linux")] {
+    } else if #[cfg(any(target_os = "linux", target_os = "oxidebsd"))] {
         mod linux_uapi;
         pub(crate) use linux_uapi::*;
     } else if #[cfg(target_os = "netbsd")] {
