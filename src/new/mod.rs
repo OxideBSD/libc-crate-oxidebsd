@@ -249,7 +249,8 @@ cfg_if! {
             target_os = "android",
             target_os = "emscripten",
             target_os = "l4re",
-            target_os = "linux"
+            target_os = "linux",
+            target_os = "oxidebsd"
         ))]
         pub use pthread::*;
         pub use unistd::*;
