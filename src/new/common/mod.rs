@@ -23,6 +23,7 @@ pub(crate) mod bsd;
     target_os = "emscripten",
     target_os = "l4re",
     target_os = "linux",
+    target_os = "oxidebsd",
 ))]
 pub(crate) mod linux_like;
 
