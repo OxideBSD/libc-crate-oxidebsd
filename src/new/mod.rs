@@ -175,7 +175,7 @@ cfg_if! {
 cfg_if! {
     if #[cfg(target_os = "android")] {
         pub use sys::socket::*;
-    } else if #[cfg(target_os = "linux")] {
+    } else if #[cfg(any(target_os = "linux", target_os = "oxidebsd"))] {
         pub use linux::can::bcm::*;
         pub use linux::can::error::*;
         pub use linux::can::j1939::*;
