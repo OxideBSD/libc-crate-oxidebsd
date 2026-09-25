@@ -488,7 +488,12 @@ pub const SYS_sched_setattr: c_long = 314;
 pub const SYS_sched_getattr: c_long = 315;
 pub const SYS_renameat2: c_long = 316;
 pub const SYS_seccomp: c_long = 317;
+#[cfg(not(target_os = "oxidebsd"))]
 pub const SYS_getrandom: c_long = 318;
+// OxideBSD's own syscall number (its patched musl remaps __NR_getrandom the same way); 318 is
+// unassigned there, so std's raw fallback used to get ENOSYS and read /dev/urandom instead.
+#[cfg(target_os = "oxidebsd")]
+pub const SYS_getrandom: c_long = 526;
 pub const SYS_memfd_create: c_long = 319;
 pub const SYS_kexec_file_load: c_long = 320;
 pub const SYS_bpf: c_long = 321;
